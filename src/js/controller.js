@@ -37,8 +37,6 @@ const controlRecipes = async function () {
 
     // 4) render results
     resultsView.update(model.getSearchResultsPage());
-
-    // const recipeView = new recipeView(model.state.recipe);
   } catch (err) {
     // alert(err);
     recipeView.renderError();
@@ -126,7 +124,6 @@ const controlAddRecipe = async function (newRecipe) {
       model.state.bookmarks
     );
     bookmarksView.render(model.state.bookmarks);
-    // bookmarksView.update(model.state.bookmarks);
 
     //Change ID in the URL
     window.history.pushState(null, '', `#${model.state.recipe.id}`);
@@ -141,10 +138,6 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
-const newFeature = function () {
-  console.log('Welcome to the application');
-};
-
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -153,10 +146,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  newFeature();
 };
 
 init();
-
-// window.addEventListener('hashchange', controlRecipes());
-// window.addEventListener('load', controlRecipes());
